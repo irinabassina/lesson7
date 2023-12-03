@@ -11,15 +11,15 @@ public class Student implements Observer {
     private int salary = 2000;
 
     @Override
-    public void receiveOffer(String nameCompany, int salary) {
-        if (this.salary <= salary){
-            System.out.printf("Студент %s: Мне нужна эта работа! (компания: %s; заработная плата: %d)\n",
-                    name, nameCompany, salary);
-            this.salary = salary;
+    public void receiveOffer(JobVacancy jobVacancy) {
+        if (this.salary <= jobVacancy.getSalary()){
+            System.out.printf("Специалист %s: Мне нужна эта работа! (компания: %s; заработная плата: %d)\n",
+                    name, jobVacancy.getCompany().getName(), jobVacancy.getSalary());
+            this.salary = jobVacancy.getSalary();
         }
         else {
-            System.out.printf("Студент %s: Я найду работу получше! (компания: %s; заработная плата: %d)\n",
-                    name, nameCompany, salary);
+            System.out.printf("Специалист %s: Я найду работу получше! (компания: %s; заработная плата: %d)\n",
+                    name, jobVacancy.getCompany().getName(), jobVacancy.getSalary());
         }
     }
 }
