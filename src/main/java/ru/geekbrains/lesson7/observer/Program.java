@@ -21,10 +21,12 @@ public class Program {
         Student student1 = new Student("Студент #1");
         Master master1 = new Master("Мастер #1");
         Master master2 = new Master("Мастер #2");
+        Senior senior1 = new Senior("Синьор #1");
 
         publisher.registerObserver(student1);
         publisher.registerObserver(master1);
         publisher.registerObserver(master2);
+        publisher.registerObserver(senior1);
 
         for (int i = 0; i < 3; i++){
             google.needEmployee();
